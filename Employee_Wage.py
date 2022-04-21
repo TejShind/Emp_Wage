@@ -7,9 +7,8 @@
 '''
 
 print('Welcome to Employee Wage Program')
-
-#Importing Random
 import random
+<<<<<<< HEAD
 
 #CONSTANTS
 IS_ABSENT = 0
@@ -37,3 +36,21 @@ def get_work_hours():
 
 daily_emp_wage = WAGE_PER_HOUR * get_work_hours()
 print(f"Person earns {daily_emp_wage} rupees this day")
+=======
+class Employee:
+
+    def __init__(self):
+        self.attendance = random.randint(0, 1)
+    """
+    Below functions checks whether the employee is present or absent. And print the status
+    """
+    def check_attendance(self):
+        if self.attendance == 0:
+            print("Employee is absent")
+        else:
+            print("Employee is present")
+
+print("Welcome to EmployeeWage computation program")
+employee = Employee()
+employee.check_attendance()
+>>>>>>> UC1_CheckEmpPresntOrAbsent
