@@ -7,13 +7,20 @@
 '''
 
 print('Welcome to Employee Wage Program')
-
-#Importing Random
 import random
-IS_PRESENT = 1
+class Employee:
 
-emp_check = random.randint(0,1)
-if emp_check == IS_PRESENT:
-    print("Employee is present")
-else:
-    print("Employee is absent")
+    def __init__(self):
+        self.attendance = random.randint(0, 1)
+    """
+    Below functions checks whether the employee is present or absent. And print the status
+    """
+    def check_attendance(self):
+        if self.attendance == 0:
+            print("Employee is absent")
+        else:
+            print("Employee is present")
+
+print("Welcome to EmployeeWage computation program")
+employee = Employee()
+employee.check_attendance()
