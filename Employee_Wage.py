@@ -1,13 +1,21 @@
 '''
 @Author: Tejaswini Shinde
+<<<<<<< HEAD
 @Date: 2022-04-20 20:18
 @Last Modified by: Tejaswini Shinde
 @Last Modified time: None
 @Title :UC3_Add Part time 
+=======
+@Date: 2022-04-20 09:31
+@Last Modified by: Tejaswini Shinde
+@Last Modified time: None
+@Title :Employee Wage
+>>>>>>> UC2_Calculate_DailyWage
 '''
 
 print('Welcome to Employee Wage Program')
 import random
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 #CONSTANTS
@@ -39,10 +47,15 @@ print(f"Person earns {daily_emp_wage} rupees this day")
 =======
 class Employee:
 
+=======
+class Employee:
+
+>>>>>>> UC2_Calculate_DailyWage
     def __init__(self):
         self.attendance = random.randint(0, 1)
     """
     Below functions checks whether the employee is present or absent. And print the status
+<<<<<<< HEAD
     """
     def check_attendance(self):
         if self.attendance == 0:
@@ -54,3 +67,18 @@ print("Welcome to EmployeeWage computation program")
 employee = Employee()
 employee.check_attendance()
 >>>>>>> UC1_CheckEmpPresntOrAbsent
+=======
+    Calculate Daily Wage assume Wage per hour=20,Fullday hour=8 
+    """
+    def check_attendance(self):
+        if self.attendance == 1:
+            print("Employee is Present")
+            daily_wage =20*8
+            print(f"The daily employee wage is Rs.{daily_wage}")
+        else:
+            print("Employee is Absent")
+            daily_wage=0
+            print(f"The daily employee wage is Rs.{daily_wage}")
+employee = Employee()
+employee.check_attendance()
+>>>>>>> UC2_Calculate_DailyWage
