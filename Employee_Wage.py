@@ -1,39 +1,88 @@
 '''
 @Author: Tejaswini Shinde
-@Date: 2022-04-20 20:18
+@Date: 2022-04-25 15:43
 @Last Modified by: Tejaswini Shinde
 @Last Modified time: None
-@Title :UC3_Add Part time 
+@Title :Employee Wage UC4_Solving using Case Statment
 '''
+
+import random
 
 print('Welcome to Employee Wage Program')
 
-#Importing Random
-import random
 
-#CONSTANTS
-IS_ABSENT = 0
-IS_PART_TIME = 1
-IS_PRESENT = 2
-WAGE_PER_HOUR = 20
-PART_TIME_HOUR = 4
-FULL_DAY_HOUR = 8
+fullDayEmpHour = 8
+partTimeEmpHour = 4
+empWagePerHour = 20
+
+def empFullDayWage():
+    """
+        Description:
+            checking employee full day wage
+        Parameter:
+            none
+        Return:
+            sending total emp wage and message of full day
+    """
+    totalEmpWage = fullDayEmpHour * empWagePerHour
+
+    return("Employee Is Present And Done Full Day", totalEmpWage)
 
 
-def get_work_hours():
-    '''
-            Description: Function to get Employee Working hours
-            Parameter: None
-            Return: work_hrs as per Random Calculation
-        '''
-    emp_check = random.randint(0,2)
-    if emp_check == IS_PRESENT:
-        work_hrs = FULL_DAY_HOUR
-    elif emp_check == IS_PART_TIME:
-        work_hrs = PART_TIME_HOUR
-    else:
-        work_hrs = 0
-    return work_hrs
 
-daily_emp_wage = WAGE_PER_HOUR * get_work_hours()
-print(f"Person earns {daily_emp_wage} rupees this day")
+def empPartTimeDayWage():
+    """
+        Description:
+            checking employee half day wage
+        Parameter:
+            none right now
+        Return:
+            sending total emp wage and message of half day
+    """
+    totalEmpWage = partTimeEmpHour * empWagePerHour
+
+    return("Employee Is Present And Done half Day", totalEmpWage)
+
+
+def empPresentyCheck(presentCheck):
+    """
+        Description:
+            checking employee attendace present or absent
+        Parameter:
+            sending parameter of two random number
+        Return:
+            return absent message
+    """
+    switcher = {
+        0: 'Employee Is Absent',
+        1: empwageCalculate(random.randint(0, 1)),
+    }
+    return switcher[presentCheck]
+
+def empwageCalculate(num):
+    """
+        Description:
+            checking employee half day or full day
+        Parameter:
+            sending parameter of two random number for checking half day or full day
+        Return:
+            return function values from half or full day.
+    """
+    switcher = {
+        0: empPartTimeDayWage(),
+        1: empFullDayWage()
+    }
+    return switcher[num]
+
+
+empCheck = random.randint(0, 1)
+
+employeeWage = empPresentyCheck(empCheck)
+
+if empCheck == 0:
+    print(employeeWage)
+else:
+    print(employeeWage[0])
+    print(employeeWage[1])
+
+
