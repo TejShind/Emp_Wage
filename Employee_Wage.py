@@ -74,7 +74,6 @@ def empwageCalculate(num):
     }
     return switcher[num]
 
-
 empCheck = random.randint(0, 1)
 
 employeeWage = empPresentyCheck(empCheck)
