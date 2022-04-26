@@ -1,9 +1,9 @@
 '''
 @Author: Tejaswini Shinde
-@Date: 2022-04-26 11:37
+@Date: 2022-04-26 16:22
 @Last Modified by: Tejaswini Shinde
 @Last Modified time: None
-@Title :Employee Wage UC5_Calculating Wages
+@Title :Employee Wage UC7_Refactor the Code to write a function to get work hours
 '''
 
 import random
@@ -105,9 +105,9 @@ while i < 20:
     i = i + 1
     days += 1
 
-print("Total Employee Wage for a Month Is", totalEmpWage)
-print("Total Employee days in a Month Is", days)
-print("Total Employee working days in a month Is", workingDays)
-print("Total Employee working Hours in a month Is", totalWorkingHours)
+print("Total Employee Wage for a Month :", totalEmpWage)
+print("Total Employee days in a Month :", days)
+print("Total Employee working days in a month :", workingDays)
+print("Total Employee working Hours in a month :", totalWorkingHours)
 
 
