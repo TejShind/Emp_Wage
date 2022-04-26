@@ -1,96 +1,86 @@
 '''
 @Author: Tejaswini Shinde
-<<<<<<< HEAD
-<<<<<<< HEAD
-@Date: 2022-04-20 20:18
+@Date: 2022-04-25 15:43
 @Last Modified by: Tejaswini Shinde
 @Last Modified time: None
-@Title :UC3_Add Part time 
-=======
-@Date: 2022-04-20 09:31
-@Last Modified by: Tejaswini Shinde
-@Last Modified time: None
-@Title :Employee Wage
->>>>>>> UC2_Calculate_DailyWage
-=======
-@Date: 2022-04-21 20:43
-@Last Modified by: Tejaswini Shinde
-@Last Modified time: None
-@Title :Employee Wage UC3_Part Time
->>>>>>> UC3_Adding_PartTime
+@Title :Employee Wage UC4_Solving using Case Statment
 '''
 
-print('Welcome to Employee Wage Program')
 import random
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-class Employee:
-    def __init__(self):
-        self.attendance = random.randint(0, 1)
+print('Welcome to Employee Wage Program')
+
+
+fullDayEmpHour = 8
+partTimeEmpHour = 4
+empWagePerHour = 20
+
+def empFullDayWage():
     """
-
-    Below functions checks whether the employee is present or absent. And print the status
-    Calculate Daily Wage assume Wage per hour=20,Fullday hour=8,Part time day Hour=4
+        Description:
+            checking employee full day wage
+        Parameter:
+            none
+        Return:
+            sending total emp wage and message of full day
     """
+    totalEmpWage = fullDayEmpHour * empWagePerHour
 
-    def check_attendance(self):
-        if self.attendance == 0:
-            print("Employee is Absent")
-        elif self.attendance ==1:
-            self.attendance = random.randint(0, 1)  
-            print("Employee is Present ")   
-            daily_wage=20*8
-            print(f"The daily employee wage is Rs.{daily_wage}")
-        else:
-            print("Employee is part time prsent")
-            daily_wage=20*4
-            print(f"The daily employee wage is Rs.{daily_wage}")
-            employee = Employee()
-            employee.check_attendance()
-            employee.daily_emp_wage()
-            
+    return("Employee Is Present And Done Full Day", totalEmpWage)
 
-<<<<<<< HEAD
-daily_emp_wage = WAGE_PER_HOUR * get_work_hours()
-print(f"Person earns {daily_emp_wage} rupees this day")
-=======
-class Employee:
 
-=======
-class Employee:
-
->>>>>>> UC2_Calculate_DailyWage
-    def __init__(self):
-        self.attendance = random.randint(0, 1)
+def empPartTimeDayWage():
     """
-    Below functions checks whether the employee is present or absent. And print the status
-<<<<<<< HEAD
+        Description:
+            checking employee half day wage
+        Parameter:
+            none right now
+        Return:
+            sending total emp wage and message of half day
     """
-    def check_attendance(self):
-        if self.attendance == 0:
-            print("Employee is absent")
-        else:
-            print("Employee is present")
+    totalEmpWage = partTimeEmpHour * empWagePerHour
 
-print("Welcome to EmployeeWage computation program")
-employee = Employee()
-employee.check_attendance()
->>>>>>> UC1_CheckEmpPresntOrAbsent
-=======
-    Calculate Daily Wage assume Wage per hour=20,Fullday hour=8 
+    return("Employee Is Present And Done half Day", totalEmpWage)
+
+
+def empPresentyCheck(presentCheck):
     """
-    def check_attendance(self):
-        if self.attendance == 1:
-            print("Employee is Present")
-            daily_wage =20*8
-            print(f"The daily employee wage is Rs.{daily_wage}")
-        else:
-            print("Employee is Absent")
-            daily_wage=0
-            print(f"The daily employee wage is Rs.{daily_wage}")
-employee = Employee()
-employee.check_attendance()
->>>>>>> UC2_Calculate_DailyWage
-=======
->>>>>>> UC3_Adding_PartTime
+        Description:
+            checking employee attendace present or absent
+        Parameter:
+            sending parameter of two random number
+        Return:
+            return absent message
+    """
+    switcher = {
+        0: 'Employee Is Absent',
+        1: empwageCalculate(random.randint(0, 1)),
+    }
+    return switcher[presentCheck]
+
+def empwageCalculate(num):
+    """
+        Description:
+            checking employee half day or full day
+        Parameter:
+            sending parameter of two random number for checking half day or full day
+        Return:
+            return function values from half or full day.
+    """
+    switcher = {
+        0: empPartTimeDayWage(),
+        1: empFullDayWage()
+    }
+    return switcher[num]
+
+
+empCheck = random.randint(0, 1)
+
+employeeWage = empPresentyCheck(empCheck)
+
+if empCheck == 0:
+    print(employeeWage)
+else:
+    print(employeeWage[0])
+    print(employeeWage[1])
+
