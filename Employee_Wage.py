@@ -16,7 +16,11 @@ partTimeEmpHour = 4
 empWagePerHour = 20
 totalEmpWage = 0
 workingDays =0
-days=0
+days= 0
+daysInMonth  = 20
+hoursInMonth =100
+totalWorkingHours = 0
+
 
 
 def empFullDayWage():
@@ -76,23 +80,34 @@ def empwageCalculate(num):
         1: empFullDayWage()
     }
     return switcher[num]
-i = 0
-while i< 20:
 
+i = 0
+while i < 20:
     empCheck = random.randint(0, 1)
     employeeWage = empPresentyCheck(empCheck)
-
     if empCheck == 0:
-      print(employeeWage)    
-      i = i-1
+        # print(employeeWage)
+        i = i-1
     else:
-      print(employeeWage[0])
-      totalEmpWage+= (employeeWage[1])
-      workingDays+=1
+        if totalWorkingHours < 92:
+            # print(employeeWage[0])
+            totalEmpWage += employeeWage[1]
+            workingDays += 1
+            totalWorkingHours += employeeWage[1]
 
-    i = i+1
-    days+=1
+        else:
+            if employeeWage[2] == 4:
+                totalWorkingHours += employeeWage[2]
 
-print("Total Employee Wage for a Month : ", totalEmpWage)
-print("Total Employee days in a Month : ", days)
-print("Total Employee working days in a month : ", workingDays)
+    if totalWorkingHours >= 100:
+        break
+
+    i = i + 1
+    days += 1
+
+print("Total Employee Wage for a Month Is", totalEmpWage)
+print("Total Employee days in a Month Is", days)
+print("Total Employee working days in a month Is", workingDays)
+print("Total Employee working Hours in a month Is", totalWorkingHours)
+
+
