@@ -1,9 +1,9 @@
 '''
 @Author: Tejaswini Shinde
-@Date: 2022-04-25 15:43
+@Date: 2022-04-26 11:37
 @Last Modified by: Tejaswini Shinde
 @Last Modified time: None
-@Title :Employee Wage UC4_Solving using Case Statment
+@Title :Employee Wage UC5_Calculating Wages
 '''
 
 import random
@@ -14,6 +14,10 @@ print('Welcome to Employee Wage Program')
 fullDayEmpHour = 8
 partTimeEmpHour = 4
 empWagePerHour = 20
+totalEmpWage = 0
+workingDays =0
+days=0
+
 
 def empFullDayWage():
     """
@@ -34,7 +38,7 @@ def empPartTimeDayWage():
         Description:
             checking employee half day wage
         Parameter:
-            none right now
+            none
         Return:
             sending total emp wage and message of half day
     """
@@ -72,15 +76,23 @@ def empwageCalculate(num):
         1: empFullDayWage()
     }
     return switcher[num]
+i = 0
+while i< 20:
 
+    empCheck = random.randint(0, 1)
+    employeeWage = empPresentyCheck(empCheck)
 
-empCheck = random.randint(0, 1)
+    if empCheck == 0:
+      print(employeeWage)    
+      i = i-1
+    else:
+      print(employeeWage[0])
+      totalEmpWage+= (employeeWage[1])
+      workingDays+=1
 
-employeeWage = empPresentyCheck(empCheck)
+    i = i+1
+    days+=1
 
-if empCheck == 0:
-    print(employeeWage)
-else:
-    print(employeeWage[0])
-    print(employeeWage[1])
-
+print("Total Employee Wage for a Month : ", totalEmpWage)
+print("Total Employee days in a Month : ", days)
+print("Total Employee working days in a month : ", workingDays)
