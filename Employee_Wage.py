@@ -1,9 +1,9 @@
 '''
 @Author: Tejaswini Shinde
-@Date: 2022-04-26 16:22
+@Date: 2022-04-27 9:22
 @Last Modified by: Tejaswini Shinde
 @Last Modified time: None
-@Title :Employee Wage UC7_Refactor the Code to write a function to get work hours
+@Title :Employee Wage UC8_Store the daily wage along with total wage
 '''
 
 import random
@@ -14,9 +14,6 @@ print('Welcome to Employee Wage Program')
 fullDayEmpHour = 8
 partTimeEmpHour = 4
 empWagePerHour = 20
-totalEmpWage = 0
-workingDays =0
-days= 0
 daysInMonth  = 20
 hoursInMonth =100
 totalWorkingHours = 0
@@ -81,33 +78,51 @@ def empwageCalculate(num):
     }
     return switcher[num]
 
-i = 0
-while i < 20:
-    empCheck = random.randint(0, 1)
-    employeeWage = empPresentyCheck(empCheck)
-    if empCheck == 0:
+def empWageComputation():
+    """
+        Description:
+            Getting employee wage calculation for now it is giving total employee working hours
+        Parameter:
+            none
+        Return:
+            returns total working hours
+    """
+    totalEmpWage = 0
+    workingDays =0
+    totalWorkingHours =0
+    days= 0
+    i = 0
+    dailyWage =[]
+
+    while i < 20:
+      empCheck = random.randint(0, 1)
+      employeeWage = empPresentyCheck(empCheck)
+
+      if empCheck == 0:
         # print(employeeWage)
         i = i-1
-    else:
+      else:
         if totalWorkingHours < 92:
             # print(employeeWage[0])
             totalEmpWage += employeeWage[1]
+            dailyWage.append(employeeWage[1])
             workingDays += 1
             totalWorkingHours += employeeWage[1]
 
         else:
-            if employeeWage[2] == 4:
+
+             if employeeWage[2] == 4:
                 totalWorkingHours += employeeWage[2]
-
-    if totalWorkingHours >= 100:
-        break
-
-    i = i + 1
-    days += 1
-
-print("Total Employee Wage for a Month :", totalEmpWage)
-print("Total Employee days in a Month :", days)
-print("Total Employee working days in a month :", workingDays)
-print("Total Employee working Hours in a month :", totalWorkingHours)
+                dailyWage.append(employeeWage[2])
 
 
+        if totalWorkingHours >= 100:
+            break
+
+        i = i + 1
+        days += 1
+
+    return totalWorkingHours, dailyWage
+
+
+print("Total Employee working Hours in a month Is", empWageComputation())
