@@ -3,7 +3,7 @@
 @Date: 2022-04-27 9:22
 @Last Modified by: Tejaswini Shinde
 @Last Modified time: None
-@Title :Employee Wage UC8_Store the daily wage along with total wage
+@Title :Employee Wage UC9_Store the Day the daily wage along with total wage
 '''
 
 import random
@@ -14,48 +14,45 @@ print('Welcome to Employee Wage Program')
 fullDayEmpHour = 8
 partTimeEmpHour = 4
 empWagePerHour = 20
-daysInMonth  = 20
-hoursInMonth =100
-totalWorkingHours = 0
 
 
 
 def empFullDayWage():
     """
         Description:
-            checking employee full day wage
+            Checking employee full day wage
         Parameter:
-            none
+            None
         Return:
-            sending total emp wage and message of full day
+            Sending total emp wage and message of full day
     """
     totalEmpWage = fullDayEmpHour * empWagePerHour
 
-    return("Employee Is Present And Done Full Day", totalEmpWage)
+    return("Employee Is Present And Done Full Day", totalEmpWage,fullDayEmpHour)
 
 
 def empPartTimeDayWage():
     """
         Description:
-            checking employee half day wage
+            Checking employee half day wage
         Parameter:
-            none
+            None
         Return:
-            sending total emp wage and message of half day
+            Sending total emp wage and message of half day
     """
     totalEmpWage = partTimeEmpHour * empWagePerHour
 
-    return("Employee Is Present And Done half Day", totalEmpWage)
+    return("Employee Is Present And Done half Day", totalEmpWage,partTimeEmpHour)
 
 
 def empPresentyCheck(presentCheck):
     """
         Description:
-            checking employee attendace present or absent
+            Checking employee attendace present or absent
         Parameter:
-            sending parameter of two random number
+            Sending parameter of two random number
         Return:
-            return absent message
+            Return absent message
     """
     switcher = {
         0: 'Employee Is Absent',
@@ -66,11 +63,11 @@ def empPresentyCheck(presentCheck):
 def empwageCalculate(num):
     """
         Description:
-            checking employee half day or full day
+            Checking employee half day or full day
         Parameter:
-            sending parameter of two random number for checking half day or full day
+            Sending parameter of two random number for checking half day or full day
         Return:
-            return function values from half or full day.
+            Return function values from half or full day.
     """
     switcher = {
         0: empPartTimeDayWage(),
@@ -92,28 +89,28 @@ def empWageComputation():
     totalWorkingHours =0
     days= 0
     i = 0
-    dailyWage =[]
+    dailyDays = []
+    dailyWage = []
 
     while i < 20:
       empCheck = random.randint(0, 1)
       employeeWage = empPresentyCheck(empCheck)
 
       if empCheck == 0:
-        # print(employeeWage)
+        print(employeeWage)
         i = i-1
       else:
-        if totalWorkingHours < 92:
-            # print(employeeWage[0])
+        if totalWorkingHours <= 92:
+           # print(employeeWage[0])
             totalEmpWage += employeeWage[1]
+            dailyDays.append(i)
             dailyWage.append(employeeWage[1])
             workingDays += 1
             totalWorkingHours += employeeWage[1]
-
         else:
-
              if employeeWage[2] == 4:
                 totalWorkingHours += employeeWage[2]
-                dailyWage.append(employeeWage[2])
+                dailyWage.append(employeeWage[1])
 
 
         if totalWorkingHours >= 100:
@@ -122,7 +119,10 @@ def empWageComputation():
         i = i + 1
         days += 1
 
-    return totalWorkingHours, dailyWage
+    return totalWorkingHours,dailyDays, dailyWage 
 
+totalWorkingHours,dailyDays,dailyWage = empWageComputation()
 
-print("Total Employee working Hours in a month Is", empWageComputation())
+print("Total Employee working Hours in a month :", totalWorkingHours)
+print("Total Employee working Daily Days in a month :", dailyDays)
+print("Total Employee working Daily Wages in a month :" ,dailyWage)
